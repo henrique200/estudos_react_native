@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const SkillCard = ({skills}) => {
     return (
-        <View key="1" style={styles.containerNewSkills}>
+        <View style={styles.containerNewSkills}>
             <Text style={styles.textSkills}>
                 {skills}
             </Text>
