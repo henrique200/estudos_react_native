@@ -31,6 +31,14 @@ export const Home = () => {
         setMySkills(oldState => [...oldState, data]);
     }
 
+    const handleRemoveSkills = (id: string) => {
+        setMySkills(oldState => oldState.filter(
+            skill => skill.id !== id
+        ));
+        console.log('skill excluida');
+        
+    }
+
     useEffect(() => {
         const currentHours = new Date().getHours();
 
@@ -67,6 +75,7 @@ export const Home = () => {
                 renderItem={({item}) => (
                     <SkillCard 
                         skills={item.name}
+                        onLongPress={() => handleRemoveSkills(item.id)}
                     />
                 )}
             />
@@ -78,7 +87,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#121015',
-        paddingHorizontal: 20,
         paddingVertical: 70,
         paddingHorizontal: 30
     },
